@@ -1,3 +1,17 @@
+$( document ).ready( function () { 
+  // AJAX
+  if ( window.location.hash ) {
+      initialLocation = "AJAXContent.php?contentIdentifier=" + window.location.hash.replace( "#", "" );
+  }
+  else {
+      initialLocation = "AJAXContent.php?contentIdentifier=Home";
+  }
+  $.get( initialLocation, function ( responseHTML ) {
+      $("#contentWrapper").html(responseHTML);
+      document.title = "Michael Megee " + $("h2").text();
+      $("select[name=mobileNavigation]").val(window.location.hash.replace( "#", "" ));
+  });
+});
 //
 // AJAX
 //
