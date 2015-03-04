@@ -19,7 +19,7 @@ window.addEventListener( "popstate", function(e) {
   $.get( "AJAXContent.php?contentIdentifier="+((window.location.hash.replace( "#", "")!="")?window.location.hash.replace( "#", ""):"Home"), function ( responseHTML ) {
       $("#contentWrapper").html( responseHTML );
       window.scrollTo(0,0);
-      document.title = "Prefix Text " + $("h2").text(); // Set's Header on Page with Title
+      document.title = "Prefix Text " + $("h2").text(); // Set's Title to First H2 in AJAX Response
       // Google Analytics
       ga('send', {
         'hitType': 'pageview',
@@ -32,7 +32,7 @@ function goto ( contentIdentifier ) {
       window.history.pushState( "", "", "#" + contentIdentifier );
       $("#contentWrapper").html(responseHTML);
       window.scrollTo(0,0);
-      document.title = "Michael Megee " + $("h2").text(); // Set's Header on Page with Title
+      document.title = "Michael Megee " + $("h2").text(); // Set's Title to First H2 in AJAX Response
       // Google Analytics
       ga('send', {
         'hitType': 'pageview',
